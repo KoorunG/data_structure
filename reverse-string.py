@@ -23,7 +23,8 @@ print(t)          # 검증
 
 # 2. 파이썬 슬라이싱 사용
 def reverseString2(s: List[str]) -> None:
-    s[:] = s[::-1]
+    s[:] = s[::-1]  # 문제에서 공간복잡도를 O(1)으로 제한했기 때문에 s = s[::-1]이 에러가 발생함
+                    # 따라서 s[:] = s[::-1] 으로 O(1)으로 만들어준것
 
 
 reverseString2(t)  # 264 ms / 18.7 MB
