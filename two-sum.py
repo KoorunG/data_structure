@@ -19,6 +19,7 @@ target2 = 6
 nums3 = [3, 3]
 target3 = 6
 
+
 # 1. 내 풀이 : 114 ms	15.1 MB
 def twoSum(nums: List[int], target: int) -> List[int]:
     # 딕셔너리는 해시테이블로 구현되어있기 때문에 O(1)로 조회가 가능하다
@@ -34,6 +35,23 @@ def twoSum(nums: List[int], target: int) -> List[int]:
             return [i, tmp_dict[target - n]]
 
 
+# 2. 투 포인터 이용 : 인덱스가 뒤죽박죽이 되기 때문에 풀이 불가
+# (인덱스가 아닌, 값을 리턴하는 문제였다면 매우 쉽게 풀렸을거임)
+def twoSum2(nums: List[int], target: int) -> List[int]:
+    left, right = 0, len(nums) - 1
+    while not left == right:
+        if nums[left] + nums[right] < target:
+            left += 1
+        elif nums[left] + nums[right] > target:
+            right -= 1
+        else:
+            return [left, right]
+
+
 print(twoSum(nums, target))
 print(twoSum(nums2, target2))
 print(twoSum(nums3, target3))
+
+print(twoSum2(nums, target))
+print(twoSum2(nums2, target2))
+print(twoSum2(nums3, target3))
